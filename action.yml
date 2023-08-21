@@ -1,0 +1,34 @@
+# action.yml
+name: 'Deploy AWS Lambda'
+description: 'Deploys repo code into AWS Lambda'
+author: 'Vysakh P Pillai'
+branding:
+  icon: 'upload-cloud'  
+  color: 'green'
+inputs:
+  access-key-id:  
+    description: 'AWS Access Key ID'
+    required: true
+  access-key-secret:  
+    description: 'AWS Access Key Secret'
+    required: true
+  region:  
+    description: 'AWS region'
+    required: true
+  lambda-name:  
+    description: 'Lambda function name'
+    required: true
+  zip-file:  
+    description: 'Zip File to deploy'
+    required: true
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.access-key-id }}
+    - ${{ inputs.access-key-secret }}
+    - ${{ inputs.region }}
+    - ${{ inputs.lambda-name }}
+    - ${{ inputs.zip-file }}
