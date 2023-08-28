@@ -22,15 +22,15 @@ on: [push]
 jobs:
   lambda_deployment:
     runs-on: ubuntu-latest
-    name: deploy code in repo into a lambda function
+    name: Deploy code in repo into a lambda function
     steps:
-      - name: Code checkout
+      - name: 🏷 Code checkout
         id: checkout
         uses: actions/checkout@master
-      - name: Package code into zip
+      - name: 📦 Package code into zip
         id: Package
         run: zip -r package.zip lambda_function.py
-      - name: Deploy Lambda
+      - name: 🚀 Deploy Lambda
         id: Deploy
         uses: primeflight/deploy_lambda@v1.0.0
         with:
