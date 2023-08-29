@@ -31,4 +31,5 @@ runs:
     - ${{ inputs.access-key-secret }}
     - ${{ inputs.region }}
     - ${{ inputs.lambda-name }}
+    - "src/handlers/lambda_function.lambda_handler"
     - ${{ inputs.zip-file }}
